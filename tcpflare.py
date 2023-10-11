@@ -9,7 +9,11 @@ if not os.path.exists('.env'):
     print('環境変数ファイルを作成しました。必要な情報を入力してください')
     sys.exit(1)
 
-
 load_dotenv()
+TOKEN = os.getenv('DISCORD_TOKEN')
+intents = discord.Intents.default()
+intents.message_content = True
 
-
+client = discord.Client(intents=intents)
+    
+client.run(TOKEN)
