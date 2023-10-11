@@ -1,3 +1,4 @@
+import time
 import discord
 import os
 from dotenv import load_dotenv
@@ -15,5 +16,11 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 client = discord.Client(intents=intents)
+
+@client.event
+async def on_ready():
+    print('DiscordBOT起動完了')
     
+
+
 client.run(TOKEN)
